@@ -20,12 +20,25 @@
 // 0 <= arr[i] <= 105
 
 function rotateArr(arr, d) {
+  //   for (let i = 1; i < d-1; i++) {
+  //     let x = arr[0];
+  //     arr[i] = arr[i-1];
+  //     arr[arr.length - 1] = x;
+  //     console.log(arr);
+  //   }
   // code here
-  console.log(d,arr.length)
-  let rotate = d % arr.length;
 
-  console.log(rotate);
+  let incIndex = 0;
+  let index = 1;
 
+  while (incIndex < d) {
+    let x = arr[0];
+    arr[index] = arr[index - 1];
+    arr[arr.length - 1] = x;
+    incIndex++;
+  }
+
+  console.log(arr);
 }
 
-rotateArr([1, 2, 3, 4, 5],2);
+rotateArr([1, 2, 3, 4, 5], 3);
