@@ -1,0 +1,31 @@
+// Given a non-negative integer(without leading zeroes) represented as an array arr. Your task is to add 1 to the number (increment the number by 1). The digits are stored such that the most significant digit is at the starting index of the array.
+
+// Examples:
+
+// Input: arr[] = [5, 6, 7, 8]
+// Output: [5, 6, 7, 9]
+// Explanation: 5678 + 1 = 5679
+// Input: arr[] = [9, 9, 9]
+// Output: [1, 0, 0, 0]
+// Explanation: 999 + 1 = 1000
+// Constraints:
+// 1 ≤ arr.size() ≤ 106
+// 0 ≤ arr[i] ≤ 9
+// There are no leading zeros in the input number.
+
+function addOne(arr) {
+  let carry = 1;
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    let sum = arr[i] + carry;
+    arr[i] = sum % 10;
+    carry = Math.floor(sum / 10);
+  }
+
+  if (carry > 0) {
+    arr.unshift(carry);
+  }
+
+  return arr;
+}
+console.log(addOne([5, 6, 7, 8]));
