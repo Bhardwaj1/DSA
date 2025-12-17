@@ -18,6 +18,7 @@
 // 0 ≤ arr[i] ≤ 105
 
 const moveAllZeroToEnd = (arr) => {
+  // With new Array
   //   let newArr = [];
   //   for (let i = 0; i < arr.length; i++) {
   //     if (arr[i] !== 0) {
@@ -29,18 +30,26 @@ const moveAllZeroToEnd = (arr) => {
   //   }
   //   return newArr;
 
-  let start = 0;
-  let end = arr.length;
-  while (start <= end) {
-    if (arr[start]!=0 &&arr[end] !=0) {
-        start++
-    }else if(arr[start]==0){
-        [arr[start],arr[end]]=[arr[end]=arr[start]];
-        end--
+  // Without new Array
+  let insertPos = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] != 0) {
+      arr[insertPos] = arr[i];
+      insertPos++;
     }
   }
+  while (insertPos < arr.length) {
+    arr[insertPos] = 0;
+    insertPos++;
+  }
 
-  return arr
+  return arr;
 };
 
-console.log(moveAllZeroToEnd([3, 5, 0, 0, 4]));
+console.log(moveAllZeroToEnd([1, 2, 0, 4, 3, 0, 5, 0]));
+
+// 1 2 0 4 3 0 5 0
+
+// [1, 2, 5, 4, 3, 0, 0, 0]my code output
+
+// [1, 2, 4, 3, 5, 0, 0, 0] correct output
