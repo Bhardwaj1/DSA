@@ -10,7 +10,7 @@
 // Output: [1, 2, 4]
 // Explation:  As the array does not contain any duplicates so you should return [1, 2, 4].
 // Constraints:
-// 1 ≤ arr.size() ≤ 105
+// 1 ≤  arr.size() ≤ 105
 // 1 ≤ arr[i] ≤ 106
 
 function removeDuplicates(arr) {
@@ -18,12 +18,11 @@ function removeDuplicates(arr) {
   let newArray = [];
 
   for (let i = 0; i < arr.length; i++) {
-    if (!newArray.includes(arr[i])) {
-      newArray.push(arr[i]);
-    }
+    // if (!newArray.includes(arr[i])) {
+    //   newArray.push(arr[i]);
+    // }
   }
-  //   let set =new Set(arr);
-  //   return [...set];
+
   return newArray;
 }
 
