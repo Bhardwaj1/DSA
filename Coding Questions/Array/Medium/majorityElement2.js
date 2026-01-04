@@ -16,3 +16,26 @@
 // Input: arr[] = [3, 2, 2, 4, 1, 4]
 // Output: [ ]
 // Explanation: There is no majority element.
+
+
+function majorityElement(arr){
+    let obj={};
+    let majorityArray=[]
+
+    for(let i=0;i<arr.length;i++){
+        if (obj[arr[i]]) {
+            obj[arr[i]]+=1
+        }else{
+            obj[arr[i]]=1
+        }
+    };
+
+    for(let key in obj){
+        if (obj[key]>Math.floor(arr.length/3)) {
+            majorityArray.push(Number(key))
+        }
+    };
+    console.log(majorityArray);
+};
+
+majorityElement([3, 2, 2, 4, 1, 4]);
